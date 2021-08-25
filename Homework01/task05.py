@@ -47,8 +47,6 @@ def bank_deposit(amount, term, add_amount):
     else:
         return f"сумма депозита {amount} вне допустимого диапазона"
 
-
-
     return amount + int(interest_amount) + int(total_addition_accrual)
 
 
