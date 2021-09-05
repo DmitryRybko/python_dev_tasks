@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <h3>Список товаров:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Наименование</th>
+                    <th>Дата поступления</th>
+                    <th>Цена</th>
+                    <th>ед.изм.</th>
+                    <th>Поставщик</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.title}}</td>
+                    <td>{{ item.add_date|date:"Y-m-d H:i:s"}}</td>
+                    <td>{{ item.price}}</td>
+                    <td>{{ item.units}}</td>
+                    <td>{{ item.supplier_name}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
