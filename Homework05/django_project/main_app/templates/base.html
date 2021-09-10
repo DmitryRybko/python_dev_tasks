@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
 
+{% block javascript %}
+<script src="{% static 'goods/js/main_script.js' %}"></script>
+{% endblock %}
+
 <html lang="en">
 <head>
     {% block additional_js %}
