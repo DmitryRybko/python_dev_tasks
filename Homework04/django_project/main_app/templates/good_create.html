@@ -1,0 +1,10 @@
+<form method="post" action="{% url 'good_create' %}" class="js-good-create-form">
+    {% csrf_token %}
+    <div class="modal-body">
+    {% include "form.html" %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create good</button>
+    </div>
+</form>
