@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+<script src="{% static 'goods/js/main_script.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<h3>Список товаров:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Наименование</th>
+                    <th>Дата поступления</th>
+                    <th>Цена</th>
+                    <th>ед.изм.</th>
+                    <th>Поставщик</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in object_list %}
+                <tr>
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.title}}</td>
+                    <td>{{ item.add_date|date:"Y-m-d H:i:s"}}</td>
+                    <td>{{ item.price}}</td>
+                    <td>{{ item.units}}</td>
+                    <td>{{ item.supplier_name}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+<hr>
+<button type="button" class="js-create-good" data-url="{% url 'goods:create' %}">Создать товар</button>
+
+<div class="modal fade" id="modal-good">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
